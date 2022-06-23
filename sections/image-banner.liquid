@@ -52,7 +52,7 @@
         {% if section.settings.image_2 != blank %}class="banner__media-image-half"{% endif %}
       >
       
-      {% if section.settings.video_url != null %}
+      {% if section.settings.video_url != blank %}
       <video src="{{ section.settings.video_url }}" 
              autoplay="" 
              loop="" 
@@ -98,7 +98,7 @@
         {%- case block.type -%}
           {%- when 'heading' -%}
             <h2 class="banner__heading {% if block.settings.heading_size == 'medium' %}h1{% else %}h0{% endif %}" {{ block.shopify_attributes }}>
-              <span>{{ block.settings.heading | escape }}</span>
+              <span>{{ block.settings.heading | escape | replace: '[primary]' , '<span class="color-primary">' | replace: '[/primary]' , '</span>'  }}</span>
             </h2>
           {%- when 'text' -%}
             <div class="banner__text {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
@@ -119,6 +119,40 @@
     </div>
   </div>
 </div>
+{% if section.settings.parallax == true %}
+<style>
+  @media (min-width: 749px) {
+    .banner__media {
+      clip-path: inset(0);
+    }
+    .banner__media img {
+      width: 100% !important;
+      position: fixed !important;
+      left: 0 !important;
+      object-fit: cover !important;
+      top: 0 !important;
+    }
+    .banner__media.banner__media-half video {
+      display: none;
+    }
+    .banner__media.banner__media-half img {
+      width: 50% !important;
+      top: 0 !important;
+    }
+    .banner__media.banner__media-half img {
+      left: 0 !important;
+      right: auto !important;
+    }
+    .banner__media.banner__media-half + .banner__media.banner__media-half img {
+      right: 0 !important;
+      left: auto !important;
+    }
+  }
+</style>
+{% endif %}
+
+
+
 
 {% schema %}
 {
@@ -131,6 +165,12 @@
       "id": "image",
       "label": "t:sections.image-banner.settings.image.label"
     },
+{
+"type": "checkbox",
+"id": "parallax",
+"default": true,
+"label": "Enable parallax effect"
+},
     {
       "type": "image_picker",
       "id": "image_2",

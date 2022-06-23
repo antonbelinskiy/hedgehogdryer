@@ -21,7 +21,7 @@
     {% unless section.settings.title == blank %}
       <div class="title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin{% if section.settings.title == blank %} title-wrapper-with-link--no-heading{% endif %}">
         <h2 class="title">
-          {{ section.settings.title | escape }}
+          {{ section.settings.title | escape | replace: '[primary]' , '<span class="color-primary">' | replace: '[/primary]' , '</span>'  }}
         </h2>
         {%- if section.settings.button_label != blank and section.settings.swipe_on_mobile -%}
           <a href="{{ section.settings.button_link }}" class="link underlined-link large-up-hide">{{ section.settings.button_label | escape }}</a>
