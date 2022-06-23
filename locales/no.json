@@ -1,0 +1,22 @@
+{
+  "newsletter": {
+    "success": "Takk for at du abonnerer"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Legg i handlekurv",
+      "quantity": {
+        "label": "Mengde"
+      },
+      "shipping_policy_html": "Gratis <a href=\"{{ link }}\">frakt<\/a> og alle avgifter inkudert."
+    }
+  },
+  "sections": {
+    "cart": {
+      "taxes_included_and_shipping_policy_html": "Gratis <a href=\"{{ link }}\">frakt<\/a> og alle avgifter inkudert.",
+      "taxes_and_shipping_policy_at_checkout_html": "Gratis <a href=\"{{ link }}\">frakt<\/a> og alle avgifter inkudert.",
+      "taxes_included_but_shipping_at_checkout": "Gratis <a href=\"{{ link }}\">frakt<\/a> og alle avgifter inkudert.",
+      "taxes_and_shipping_at_checkout": "Gratis <a href=\"{{ link }}\">frakt<\/a> og alle avgifter inkudert."
+    }
+  }
+}
