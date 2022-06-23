@@ -119,6 +119,11 @@
     </div>
   </div>
 </div>
+<style>
+  .section-header  {
+    margin-bottom: 0 !important;
+  }
+</style>
 {% if section.settings.parallax == true %}
 <style>
   @media (min-width: 749px) {
@@ -165,12 +170,12 @@
       "id": "image",
       "label": "t:sections.image-banner.settings.image.label"
     },
-{
-"type": "checkbox",
-"id": "parallax",
-"default": true,
-"label": "Enable parallax effect"
-},
+    {
+      "type": "checkbox",
+      "id": "parallax",
+      "default": true,
+      "label": "Enable parallax effect"
+    },
     {
       "type": "image_picker",
       "id": "image_2",
